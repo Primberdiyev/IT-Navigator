@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:it_navigator/common_base/common_base.dart';
-import 'package:it_navigator/common_base/design_system/themes/base/app_theme_body_text_styles.dart';
 
 class LightThemeBodyTextStyles extends AppThemeBodyTextStyles {
   const LightThemeBodyTextStyles();

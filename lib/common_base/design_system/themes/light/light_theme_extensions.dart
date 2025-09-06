@@ -5,6 +5,7 @@ final lightThemeExtension = AppThemeExtension(
     buttonColors: LightButtonColors(),
     backgroundColors: LightBgColors(),
     textColors: LightTextColors(),
+    indicatorColors: LightIndicatorColors(),
   ),
   textStyles: const AppThemeTextStyles(
     heading: LightThemeHeadingTextStyles(),

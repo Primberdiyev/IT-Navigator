@@ -99,6 +99,48 @@ abstract class L10n {
   /// In uz, this message translates to:
   /// **'IT-Navigator'**
   String get appName;
+
+  /// No description provided for @onboarding_title_1.
+  ///
+  /// In uz, this message translates to:
+  /// **'IT Olamida O\'z Yo\'lingizni Toping!'**
+  String get onboarding_title_1;
+
+  /// No description provided for @onboarding_subtitle_1.
+  ///
+  /// In uz, this message translates to:
+  /// **'Imkoniyati cheklanganlar uchun maxsus yaratilgan dasturimiz yordamida IT sohasini kashf qiling.'**
+  String get onboarding_subtitle_1;
+
+  /// No description provided for @onboarding_title_2.
+  ///
+  /// In uz, this message translates to:
+  /// **'Yangi Ko\'nikmalar va Kasblar O\'rganing!'**
+  String get onboarding_title_2;
+
+  /// No description provided for @onboarding_subtitle_2.
+  ///
+  /// In uz, this message translates to:
+  /// **'Dasturlashdan tortib, sun\'iy intellektgacha – barcha IT kasblar haqida bilib oling.'**
+  String get onboarding_subtitle_2;
+
+  /// No description provided for @onboarding_title_3.
+  ///
+  /// In uz, this message translates to:
+  /// **'Sun\'iy Intellekt Sizning Yordamchingiz!'**
+  String get onboarding_title_3;
+
+  /// No description provided for @onboarding_subtitle_3.
+  ///
+  /// In uz, this message translates to:
+  /// **'Savollaringizga AI yordamida javob oling va IT sohasidagi muammolaringizni hal qiling.'**
+  String get onboarding_subtitle_3;
+
+  /// No description provided for @next.
+  ///
+  /// In uz, this message translates to:
+  /// **'Keyingi'**
+  String get next;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

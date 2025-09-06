@@ -12,4 +12,25 @@ class L10nUz extends L10n {
 
   @override
   String get appName => 'IT-Navigator';
+
+  @override
+  String get onboarding_title_1 => 'IT Olamida O\'z Yo\'lingizni Toping!';
+
+  @override
+  String get onboarding_subtitle_1 => 'Imkoniyati cheklanganlar uchun maxsus yaratilgan dasturimiz yordamida IT sohasini kashf qiling.';
+
+  @override
+  String get onboarding_title_2 => 'Yangi Ko\'nikmalar va Kasblar O\'rganing!';
+
+  @override
+  String get onboarding_subtitle_2 => 'Dasturlashdan tortib, sun\'iy intellektgacha – barcha IT kasblar haqida bilib oling.';
+
+  @override
+  String get onboarding_title_3 => 'Sun\'iy Intellekt Sizning Yordamchingiz!';
+
+  @override
+  String get onboarding_subtitle_3 => 'Savollaringizga AI yordamida javob oling va IT sohasidagi muammolaringizni hal qiling.';
+
+  @override
+  String get next => 'Keyingi';
 }

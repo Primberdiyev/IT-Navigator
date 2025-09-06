@@ -1,14 +1,29 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:it_navigator/app_localizations.dart';
-import 'package:it_navigator/common_base/design_system/themes/light/light_theme_extensions.dart';
-import 'auth/auth.dart';
+import 'common_base/common_base.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
 
   @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  late final AppRouter _appRouter;
+
+  @override
+  void initState() {
+    super.initState();
+    _appRouter = AppRouter();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final delegate = _appRouter.delegate();
+    return MaterialApp.router(
+      routerDelegate: AutoRouterDelegate(delegate.controller),
       theme: ThemeData(
         extensions: [lightThemeExtension],
         scaffoldBackgroundColor:
@@ -16,7 +31,8 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.delegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: SplashPage(),
+      routeInformationProvider: _appRouter.routeInfoProvider(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

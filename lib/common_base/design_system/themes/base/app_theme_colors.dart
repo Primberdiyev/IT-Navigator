@@ -5,8 +5,10 @@ class AppThemeColors {
     required this.backgroundColors,
     required this.buttonColors,
     required this.textColors,
+    required this.indicatorColors,
   });
   final BackgroundColors backgroundColors;
   final ButtonColors buttonColors;
   final TextColors textColors;
+  final IndicatorColors indicatorColors;
 }

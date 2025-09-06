@@ -1,10 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:it_navigator/auth/auth.dart';
 import 'package:it_navigator/common_base/common_base.dart';
-import 'package:it_navigator/common_base/gen/assets.gen.dart';
 import 'package:it_navigator/localization/localization.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({
+    super.key,
+    required this.router,
+  });
+  final SplashRouter router;
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    navigateToOnboarding();
+  }
+
+  void navigateToOnboarding() async {
+    await Future.delayed(Duration(seconds: 3));
+    if (context.mounted) {
+      widget.router.navigateToOnboarding(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
