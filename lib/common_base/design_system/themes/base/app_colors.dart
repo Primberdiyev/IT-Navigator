@@ -66,4 +66,5 @@ abstract class AppColors {
   static const pastelGreen = Color(0xFF46D375);
   static const appTransparent = Color(0x00000000);
   static const blueGray = Color(0xFF3B4054);
+  static const azul = Color(0xFF2A4ECA);
 }

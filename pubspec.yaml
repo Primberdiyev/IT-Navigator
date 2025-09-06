@@ -15,20 +15,37 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  intl: 0.19.0
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^5.0.0
+  build_runner: 2.5.4
+  flutter_gen_runner: 5.10.0
 
+
+
+flutter_gen:
+  fonts:
+    outputs:
+      package_parameter_enabled: false
+  assets:
+    outputs:
+      package_parameter_enabled: false
+      directory_path_enabled: true
+  output: lib/common_base/gen/
+  line_length: 80
+  integrations:
+    image: true
+    flutter_svg: true
 
 flutter:
-
-
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
+  generate: true
   assets:
     - assets/images/
     - assets/icons/
