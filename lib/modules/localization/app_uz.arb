@@ -1,0 +1,16 @@
+{
+    "appName":"IT-Navigator",
+    "onboarding_title_1": "IT Olamida O'z Yo'lingizni Toping!",
+    "onboarding_subtitle_1": "Imkoniyati cheklanganlar uchun maxsus yaratilgan dasturimiz yordamida IT sohasini kashf qiling.",
+    "onboarding_title_2": "Yangi Ko'nikmalar va Kasblar O'rganing!",
+    "onboarding_subtitle_2": "Dasturlashdan tortib, sun'iy intellektgacha – barcha IT kasblar haqida bilib oling.",
+    "onboarding_title_3": "Sun'iy Intellekt Sizning Yordamchingiz!",
+    "onboarding_subtitle_3": "Savollaringizga AI yordamida javob oling va IT sohasidagi muammolaringizni hal qiling.",
+    "next":"Keyingi",
+    "welcome":"Ilovamizga Xush Kelibsiz!",
+    "loginExistingAccount":"Mavjud bo'lgan hisobga kirish",
+    "username":"Foydalanuvchi nomi",
+    "password":"Parol",
+    "login":"kirish",
+    "forgotPassword":"Parolni unutdingizmi?"
+}

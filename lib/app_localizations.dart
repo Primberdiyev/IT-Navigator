@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:it_navigator/localization/localization.dart';
+import 'package:it_navigator/modules/localization/localization.dart';
 
 class AppLocalizations {
   const AppLocalizations._();

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:it_navigator/app_localizations.dart';
-import 'common_base/common_base.dart';
+import 'modules/common_base/common_base.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -23,6 +23,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     final delegate = _appRouter.delegate();
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerDelegate: AutoRouterDelegate(delegate.controller),
       theme: ThemeData(
         extensions: [lightThemeExtension],
