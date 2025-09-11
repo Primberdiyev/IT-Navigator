@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_navigator/modules/auth/auth.dart';
+import 'package:it_navigator/modules/auth/presentation/bloc/auth_bloc.dart';
 import 'package:it_navigator/modules/common_base/common_base.dart';
 import 'package:it_navigator/modules/localization/localization.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -99,15 +101,22 @@ class _LoginPageState extends State<LoginPage> {
               bottom: 40,
               top: 32,
             ),
-            child: CustomTextButton(
-              width: 250,
-              gradientColor1: colors.textColors.loginGradient1,
-              gradientColor2: colors.textColors.loginGradient2,
-              onPressed: () {},
-              text: locale.login,
-              textStyle: textStyles.heading.head6.copyWith(
-                color: colors.textColors.whiteTextColor,
-              ),
+            child: BlocBuilder<AuthBloc, AuthState>(
+              builder: (context, state) {
+              
+                  return CustomTextButton(
+                         // isLoading: state,
+                          width: 250,
+                          gradientColor1: colors.textColors.loginGradient1,
+                          gradientColor2: colors.textColors.loginGradient2,
+                          onPressed: () {},
+                          text: locale.login,
+                          textStyle: textStyles.heading.head6.copyWith(
+                            color: colors.textColors.whiteTextColor,
+                          ),
+                        );  
+                
+              },
             ),
           ),
         ],

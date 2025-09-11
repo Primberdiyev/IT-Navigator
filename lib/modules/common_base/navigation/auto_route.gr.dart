@@ -9,76 +9,111 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i5;
+import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:flutter/material.dart' as _i7;
+import 'package:it_navigator/modules/auth/di/auth_di_module.dart' as _i2;
 import 'package:it_navigator/modules/common_base/navigation/wrappers/login_page_route.dart'
     as _i1;
 import 'package:it_navigator/modules/common_base/navigation/wrappers/onboarding_page_wrapper.dart'
-    as _i2;
-import 'package:it_navigator/modules/common_base/navigation/wrappers/register_page_wrapper.dart'
     as _i3;
-import 'package:it_navigator/modules/common_base/navigation/wrappers/splash_page_wrapper.dart'
+import 'package:it_navigator/modules/common_base/navigation/wrappers/register_page_wrapper.dart'
     as _i4;
+import 'package:it_navigator/modules/common_base/navigation/wrappers/splash_page_wrapper.dart'
+    as _i5;
 
 /// generated route for
 /// [_i1.LoginPageRoute]
-class LoginPageRoute extends _i5.PageRouteInfo<void> {
-  const LoginPageRoute({List<_i5.PageRouteInfo>? children})
-      : super(LoginPageRoute.name, initialChildren: children);
+class LoginPageRoute extends _i6.PageRouteInfo<LoginPageRouteArgs> {
+  LoginPageRoute({
+    _i7.Key? key,
+    _i2.AuthDiModule module = const _i2.AuthDiModule(),
+    List<_i6.PageRouteInfo>? children,
+  }) : super(
+          LoginPageRoute.name,
+          args: LoginPageRouteArgs(key: key, module: module),
+          initialChildren: children,
+        );
 
   static const String name = 'LoginPageRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      return const _i1.LoginPageRoute();
+      final args = data.argsAs<LoginPageRouteArgs>(
+        orElse: () => const LoginPageRouteArgs(),
+      );
+      return _i1.LoginPageRoute(key: args.key, module: args.module);
     },
   );
 }
 
+class LoginPageRouteArgs {
+  const LoginPageRouteArgs({this.key, this.module = const _i2.AuthDiModule()});
+
+  final _i7.Key? key;
+
+  final _i2.AuthDiModule module;
+
+  @override
+  String toString() {
+    return 'LoginPageRouteArgs{key: $key, module: $module}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! LoginPageRouteArgs) return false;
+    return key == other.key && module == other.module;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ module.hashCode;
+}
+
 /// generated route for
-/// [_i2.OnboardingPageWrapper]
-class OnboardingPageRoute extends _i5.PageRouteInfo<void> {
-  const OnboardingPageRoute({List<_i5.PageRouteInfo>? children})
+/// [_i3.OnboardingPageWrapper]
+class OnboardingPageRoute extends _i6.PageRouteInfo<void> {
+  const OnboardingPageRoute({List<_i6.PageRouteInfo>? children})
       : super(OnboardingPageRoute.name, initialChildren: children);
 
   static const String name = 'OnboardingPageRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      return const _i2.OnboardingPageWrapper();
+      return const _i3.OnboardingPageWrapper();
     },
   );
 }
 
 /// generated route for
-/// [_i3.RegisterPageWrapper]
-class RegisterPageRoute extends _i5.PageRouteInfo<void> {
-  const RegisterPageRoute({List<_i5.PageRouteInfo>? children})
+/// [_i4.RegisterPageWrapper]
+class RegisterPageRoute extends _i6.PageRouteInfo<void> {
+  const RegisterPageRoute({List<_i6.PageRouteInfo>? children})
       : super(RegisterPageRoute.name, initialChildren: children);
 
   static const String name = 'RegisterPageRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      return const _i3.RegisterPageWrapper();
+      return const _i4.RegisterPageWrapper();
     },
   );
 }
 
 /// generated route for
-/// [_i4.SplashPageWrapper]
-class SplashPageRoute extends _i5.PageRouteInfo<void> {
-  const SplashPageRoute({List<_i5.PageRouteInfo>? children})
+/// [_i5.SplashPageWrapper]
+class SplashPageRoute extends _i6.PageRouteInfo<void> {
+  const SplashPageRoute({List<_i6.PageRouteInfo>? children})
       : super(SplashPageRoute.name, initialChildren: children);
 
   static const String name = 'SplashPageRoute';
 
-  static _i5.PageInfo page = _i5.PageInfo(
+  static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      return const _i4.SplashPageWrapper();
+      return const _i5.SplashPageWrapper();
     },
   );
 }

@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:it_navigator/app_localizations.dart';
+import 'package:it_navigator/modules/common_base/di/di.dart';
 import 'modules/common_base/common_base.dart';
 
 class App extends StatefulWidget {
-  const App({super.key});
-
+  const App({super.key, required this.module});
+  final CoreDiModule module;
   @override
   State<App> createState() => _AppState();
 }
