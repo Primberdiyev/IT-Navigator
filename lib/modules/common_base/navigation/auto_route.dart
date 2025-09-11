@@ -27,5 +27,9 @@ class AppRouter extends RootStackRouter {
       page: RegisterPageRoute.page,
       path: RoutesPath.register,
     ),
+    AutoRoute(
+      page: HomePageRoute.page,
+      path: RoutesPath.home,
+    )
   ];
 }

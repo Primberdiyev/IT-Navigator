@@ -7,4 +7,9 @@ class LoginRouterImpl implements LoginRouter {
   @override
   void navigateToRegister(BuildContext context) =>
       context.router.replace(RegisterPageRoute());
+
+  @override
+  void navigateToHome(BuildContext context) => context.router.replace(
+        HomePageRoute(),
+      );
 }

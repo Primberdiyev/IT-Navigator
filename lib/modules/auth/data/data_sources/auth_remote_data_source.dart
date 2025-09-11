@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:it_navigator/modules/auth/auth.dart';
+import 'package:it_navigator/modules/common_base/errors/failure.dart';
 
 abstract class AuthRemoteDataSource {
   Future<User?> signInWithEmailAndPassword(LoginUseCaseParams params);
@@ -19,14 +20,18 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final FirebaseAuth _firebaseAuth;
 
   @override
-  Future<User?> signInWithEmailAndPassword(
-    LoginUseCaseParams params,
-  ) async {
-    final credential = await _firebaseAuth.signInWithEmailAndPassword(
-      email: params.email,
-      password: params.password,
-    );
-    return credential.user;
+  Future<User?> signInWithEmailAndPassword(LoginUseCaseParams params) async {
+    try {
+      final credential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: params.email,
+        password: params.password,
+      );
+      return credential.user;
+    } on FirebaseAuthException catch (_) {
+      throw AuthFailure(message: 'Mavjud hisobga kirish amalga oshmadi');
+    } catch (e) {
+      throw AuthFailure(message: 'kutilmagan muammo sodir bo\'ldi');
+    }
   }
 
   @override

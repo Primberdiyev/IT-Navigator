@@ -24,17 +24,8 @@ abstract class NetworkFailure extends Failure {
       ];
 }
 
-class ServerFailure extends NetworkFailure {
-  const ServerFailure({
-    super.message = 'Server error',
-    required super.statusCode,
-  });
-
-  @override
-  List<Object?> get props => [
-        statusCode,
-        message,
-      ];
+class AuthFailure extends Failure {
+  const AuthFailure({required super.message});
 }
 
 class NetworkInfoFailure extends NetworkFailure {
@@ -47,12 +38,6 @@ class NetworkInfoFailure extends NetworkFailure {
 class NoConnectionFailure extends Failure {
   const NoConnectionFailure({
     super.message = 'No Connection',
-  });
-}
-
-class ParseFailure extends Failure {
-  const ParseFailure({
-    super.message = 'Response parse failure',
   });
 }
 
@@ -77,4 +62,3 @@ class UnhandledFailure {
   final StackTrace stackTrace;
   final Object error;
 }
-

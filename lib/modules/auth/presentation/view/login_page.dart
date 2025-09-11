@@ -18,12 +18,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   void dispose() {
-    usernameController.dispose();
+    emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Text(locale.loginExistingAccount),
           ),
           InputFields(
-            usernameController: usernameController,
+            usernameController: emailController,
             passwordController: passwordController,
           ),
           Padding(
@@ -101,21 +101,37 @@ class _LoginPageState extends State<LoginPage> {
               bottom: 40,
               top: 32,
             ),
-            child: BlocBuilder<AuthBloc, AuthState>(
+            child: BlocConsumer<AuthBloc, AuthState>(
+              listener: (context, state) {
+                if (state.loginStatus.isError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        (state.error?.message).toString(),
+                      ),
+                    ),
+                  );
+                } else if (state.loginStatus.isSuccess) {
+                  widget.router.navigateToHome(context);
+                }
+              },
               builder: (context, state) {
-              
-                  return CustomTextButton(
-                         // isLoading: state,
-                          width: 250,
-                          gradientColor1: colors.textColors.loginGradient1,
-                          gradientColor2: colors.textColors.loginGradient2,
-                          onPressed: () {},
-                          text: locale.login,
-                          textStyle: textStyles.heading.head6.copyWith(
-                            color: colors.textColors.whiteTextColor,
-                          ),
-                        );  
-                
+                return CustomTextButton(
+                  isLoading: state.loginStatus.isLoading,
+                  width: 250,
+                  gradientColor1: colors.textColors.loginGradient1,
+                  gradientColor2: colors.textColors.loginGradient2,
+                  onPressed: () => context.read<AuthBloc>().add(
+                        LoginEvent(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ),
+                      ),
+                  text: locale.login,
+                  textStyle: textStyles.heading.head6.copyWith(
+                    color: colors.textColors.whiteTextColor,
+                  ),
+                );
               },
             ),
           ),

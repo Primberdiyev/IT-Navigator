@@ -17,7 +17,7 @@ class _AppState extends State<App> {
   @override
   void initState() {
     super.initState();
-    _appRouter = AppRouter();
+    _appRouter = widget.module.get<AppRouter>();
   }
 
   @override
