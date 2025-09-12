@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:it_navigator/modules/auth/auth.dart';
-import 'package:it_navigator/modules/auth/presentation/bloc/auth_bloc.dart';
 import 'package:it_navigator/modules/common_base/common_base.dart';
 import 'package:it_navigator/modules/localization/localization.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -86,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Text(
             locale.welcome,
-            style: textStyles.heading.head5,
+            style: textStyles.heading.head4,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 18, bottom: 50),
@@ -96,43 +94,28 @@ class _LoginPageState extends State<LoginPage> {
             usernameController: emailController,
             passwordController: passwordController,
           ),
+          LoginButton(
+            email: emailController.text,
+            password: passwordController.text,
+            router: widget.router,
+          ),
           Padding(
-            padding: const EdgeInsets.only(
-              bottom: 40,
-              top: 32,
-            ),
-            child: BlocConsumer<AuthBloc, AuthState>(
-              listener: (context, state) {
-                if (state.loginStatus.isError) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        (state.error?.message).toString(),
-                      ),
-                    ),
-                  );
-                } else if (state.loginStatus.isSuccess) {
-                  widget.router.navigateToHome(context);
-                }
-              },
-              builder: (context, state) {
-                return CustomTextButton(
-                  isLoading: state.loginStatus.isLoading,
-                  width: 250,
-                  gradientColor1: colors.textColors.loginGradient1,
-                  gradientColor2: colors.textColors.loginGradient2,
-                  onPressed: () => context.read<AuthBloc>().add(
-                        LoginEvent(
-                          email: emailController.text,
-                          password: passwordController.text,
-                        ),
-                      ),
-                  text: locale.login,
-                  textStyle: textStyles.heading.head6.copyWith(
-                    color: colors.textColors.whiteTextColor,
+            padding: EdgeInsets.only(bottom: 50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  locale.haveAccount,
+                  style: textStyles.body.rLBody16,
+                ),
+                TextButton(
+                  onPressed: () => widget.router.navigateToRegister(context),
+                  child: Text(
+                    locale.signUp,
+                    style: textStyles.heading.head6,
                   ),
-                );
-              },
+                ),
+              ],
             ),
           ),
         ],

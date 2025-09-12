@@ -1,22 +1,12 @@
-// domain/usecases/sign_up_usecase.dart
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:it_navigator/modules/auth/domain/repository/auth_repository.dart';
+import 'dart:async';
 
-class SignUpUseCase {
+import 'package:it_navigator/modules/auth/domain/domain.dart';
+import 'package:it_navigator/modules/common_base/usecases/usecases.dart';
+
+class SignUpUseCase extends UseCase<void, SignUpUseCaseParams> {
   const SignUpUseCase(this.repository);
   final AuthRepository repository;
 
-  Future<User?> call(SignUpUseCaseParams params) {
-    return repository.signUp(params.email, params.password);
-  }
-}
-
-class SignUpUseCaseParams {
-  const SignUpUseCaseParams({
-    required this.email,
-    required this.password,
-  });
-
-  final String email;
-  final String password;
+  @override
+  FutureOr makeRequest(SignUpUseCaseParams params) => repository.signUp(params);
 }

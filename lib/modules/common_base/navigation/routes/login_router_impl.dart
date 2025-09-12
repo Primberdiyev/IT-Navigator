@@ -6,7 +6,7 @@ import 'package:it_navigator/modules/common_base/common_base.dart';
 class LoginRouterImpl implements LoginRouter {
   @override
   void navigateToRegister(BuildContext context) =>
-      context.router.replace(RegisterPageRoute());
+      context.router.navigate(RegisterPageRoute());
 
   @override
   void navigateToHome(BuildContext context) => context.router.replace(

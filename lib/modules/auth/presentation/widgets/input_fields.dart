@@ -24,13 +24,13 @@ class InputFields extends StatelessWidget {
         children: [
           CustomInputField(
             controller: usernameController,
-            hintText: locale.username,
-            icon: Icons.person,
+            hintText: locale.email,
+            icon: Icons.email,
             filledColor: colors.backgroundColors.inputFieldColor,
-            textStyle: textStyles.body.sbMBody14,
             hintTextStyle: textStyles.body.mMBody14.copyWith(
               color: colors.textColors.hintTextColor,
             ),
+            textStyle: textStyles.body.sbMBody14,
           ),
           SizedBox(
             height: 25,

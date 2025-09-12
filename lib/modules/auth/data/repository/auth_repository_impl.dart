@@ -12,11 +12,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<User?> signUp(String email, String password) {
-    return remoteDataSource.signUpWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  Future<void> signUp(SignUpUseCaseParams params) async {
+    await remoteDataSource.signUpWithEmailAndPassword(params: params);
+    await remoteDataSource.saveUserToFirestore(params);
   }
 
   @override

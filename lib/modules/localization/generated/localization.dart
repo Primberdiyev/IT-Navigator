@@ -157,7 +157,7 @@ abstract class L10n {
   /// No description provided for @username.
   ///
   /// In uz, this message translates to:
-  /// **'Foydalanuvchi nomi'**
+  /// **'Ismingiz'**
   String get username;
 
   /// No description provided for @password.
@@ -177,6 +177,60 @@ abstract class L10n {
   /// In uz, this message translates to:
   /// **'Parolni unutdingizmi?'**
   String get forgotPassword;
+
+  /// No description provided for @haveAccount.
+  ///
+  /// In uz, this message translates to:
+  /// **'Hisobingiz yo\'qmi?'**
+  String get haveAccount;
+
+  /// No description provided for @signUp.
+  ///
+  /// In uz, this message translates to:
+  /// **'Ro\'yhatdan o\'tish'**
+  String get signUp;
+
+  /// No description provided for @letsStart.
+  ///
+  /// In uz, this message translates to:
+  /// **'Boshladik'**
+  String get letsStart;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In uz, this message translates to:
+  /// **'Imkoniyatlardan to\'liq foydalanish uchun Ro\'yhatdan o\'ting'**
+  String get createAccount;
+
+  /// No description provided for @surname.
+  ///
+  /// In uz, this message translates to:
+  /// **'Familyangiz'**
+  String get surname;
+
+  /// No description provided for @email.
+  ///
+  /// In uz, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @create.
+  ///
+  /// In uz, this message translates to:
+  /// **'Yaratish'**
+  String get create;
+
+  /// No description provided for @register.
+  ///
+  /// In uz, this message translates to:
+  /// **'Ro\'yhatdan o\'tish'**
+  String get register;
+
+  /// No description provided for @fillField.
+  ///
+  /// In uz, this message translates to:
+  /// **'Iltimos, barcha ma\'lumotlarni kiriting'**
+  String get fillField;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

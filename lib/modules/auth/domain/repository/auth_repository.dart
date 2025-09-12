@@ -5,7 +5,7 @@ import 'package:it_navigator/modules/auth/domain/domain.dart';
 abstract class AuthRepository {
   Future<User?> login(LoginUseCaseParams params);
 
-  Future<User?> signUp(String email, String password);
+  Future<void> signUp(SignUpUseCaseParams params);
 
   User? getCurrentUser();
 

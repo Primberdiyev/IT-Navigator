@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:it_navigator/modules/auth/auth.dart';
 import 'package:it_navigator/modules/common_base/errors/failure.dart';
@@ -6,23 +7,28 @@ abstract class AuthRemoteDataSource {
   Future<User?> signInWithEmailAndPassword(LoginUseCaseParams params);
 
   Future<User?> signUpWithEmailAndPassword({
-    required String email,
-    required String password,
+    required SignUpUseCaseParams params,
   });
 
   Future<void> signOut();
 
   User? getCurrentUser();
+
+  Future<void> saveUserToFirestore(SignUpUseCaseParams user);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
-  AuthRemoteDataSourceImpl(this._firebaseAuth);
-  final FirebaseAuth _firebaseAuth;
+  AuthRemoteDataSourceImpl({
+    required this.firebaseAuth,
+    required this.firestore,
+  });
+  final FirebaseAuth firebaseAuth;
+  final FirebaseFirestore firestore;
 
   @override
   Future<User?> signInWithEmailAndPassword(LoginUseCaseParams params) async {
     try {
-      final credential = await _firebaseAuth.signInWithEmailAndPassword(
+      final credential = await firebaseAuth.signInWithEmailAndPassword(
         email: params.email,
         password: params.password,
       );
@@ -36,23 +42,50 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<User?> signUpWithEmailAndPassword({
-    required String email,
-    required String password,
+    required SignUpUseCaseParams params,
   }) async {
-    final credential = await _firebaseAuth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-    return credential.user;
+    try {
+      final credential = await firebaseAuth.createUserWithEmailAndPassword(
+        email: params.email,
+        password: params.password,
+      );
+      return credential.user;
+    } on FirebaseAuthException catch (e) {
+      throw AuthFailure(
+          message: e.message ?? 'Hisob yaratishda xatolik yuz berdi');
+    } catch (e) {
+      throw AuthFailure(message: 'Kutilmagan muammo sodir bo\'ldi');
+    }
   }
 
   @override
   Future<void> signOut() async {
-    await _firebaseAuth.signOut();
+    await firebaseAuth.signOut();
   }
 
   @override
   User? getCurrentUser() {
-    return _firebaseAuth.currentUser;
+    return firebaseAuth.currentUser;
+  }
+
+  @override
+  Future<void> saveUserToFirestore(SignUpUseCaseParams user) async {
+    try {
+      final uid = firebaseAuth.currentUser?.uid;
+      if (uid == null) {
+        throw AuthFailure(message: 'Foydalanuvchi topilmadi');
+      }
+
+      final docRef = firestore.collection('users').doc(uid);
+      await docRef.set(
+        user.toJson(),
+      );
+    } on FirebaseAuthException catch (e) {
+      throw AuthFailure(
+          message: e.message ?? 'Foydalanuvchini saqlashda xatolik');
+    } catch (e) {
+      throw AuthFailure(
+          message: 'Foydalanuvchini saqlashda kutilmagan xatolik');
+    }
   }
 }

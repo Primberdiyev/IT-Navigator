@@ -12,5 +12,16 @@
     "username":"Foydalanuvchi nomi",
     "password":"Parol",
     "login":"kirish",
-    "forgotPassword":"Parolni unutdingizmi?"
+    "forgotPassword":"Parolni unutdingizmi?",
+    "haveAccount":"Hisobingiz yo'qmi?",
+    "signUp":"Ro'yhatdan o'tish",
+    "letsStart":"Boshladik",
+    "createAccount":"Imkoniyatlardan to'liq foydalanish uchun Ro'yhatdan o'ting",
+    "username":"Ismingiz",
+    "surname":"Familyangiz",
+    "email":"Email",
+    "password":"Parol",
+    "create":"Yaratish",
+    "register":"Ro'yhatdan o'tish",
+    "fillField":"Iltimos, barcha ma'lumotlarni kiriting"
 }

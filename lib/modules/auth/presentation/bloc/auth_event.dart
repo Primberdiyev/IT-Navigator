@@ -14,4 +14,8 @@ class LoginEvent extends AuthEvent {
   final String password;
 }
 
-class RegisterEvent extends AuthEvent {}
+class RegisterEvent extends AuthEvent {
+  const RegisterEvent({required this.user});
+
+  final SignUpUseCaseParams user;
+}

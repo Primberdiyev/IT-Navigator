@@ -41,7 +41,7 @@ class L10nUz extends L10n {
   String get loginExistingAccount => 'Mavjud bo\'lgan hisobga kirish';
 
   @override
-  String get username => 'Foydalanuvchi nomi';
+  String get username => 'Ismingiz';
 
   @override
   String get password => 'Parol';
@@ -51,4 +51,31 @@ class L10nUz extends L10n {
 
   @override
   String get forgotPassword => 'Parolni unutdingizmi?';
+
+  @override
+  String get haveAccount => 'Hisobingiz yo\'qmi?';
+
+  @override
+  String get signUp => 'Ro\'yhatdan o\'tish';
+
+  @override
+  String get letsStart => 'Boshladik';
+
+  @override
+  String get createAccount => 'Imkoniyatlardan to\'liq foydalanish uchun Ro\'yhatdan o\'ting';
+
+  @override
+  String get surname => 'Familyangiz';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get create => 'Yaratish';
+
+  @override
+  String get register => 'Ro\'yhatdan o\'tish';
+
+  @override
+  String get fillField => 'Iltimos, barcha ma\'lumotlarni kiriting';
 }
